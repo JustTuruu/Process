@@ -4,6 +4,7 @@ import { test, expect } from "@playwright/test";
 const BASE_URL = "https://www.saucedemo.com";
 
 test.describe("Saucedemo нэвтрэх ба сагслах тестүүд", () => {
+  // Зөв нэвтрэх мэдээллээр амжилттай нэвтэрч, гарахыг шалгана
   test("амжилттай нэвтрэх", async ({ page }) => {
     await page.goto(BASE_URL);
 
@@ -18,6 +19,7 @@ test.describe("Saucedemo нэвтрэх ба сагслах тестүүд", () 
     await page.getByRole("link", { name: "Logout" }).click();
   });
 
+  // Буруу нууц үгээр нэвтрэхэд алдааны мэдэгдэл гардгийг шалгана
   test("амжилтгүй нэвтрэх болон буруу нууц үг", async ({ page }) => {
     await page.goto(BASE_URL);
 
@@ -31,6 +33,7 @@ test.describe("Saucedemo нэвтрэх ба сагслах тестүүд", () 
     await expect(page).toHaveURL(BASE_URL + "/");
   });
 
+  // Нэвтэрсний дараа бараа сагслаж, сагсны тоо зөв харагдахыг шалгана
   test("нэвтэрсний дараа бараа сагслах", async ({ page }) => {
     await page.goto(BASE_URL);
 
